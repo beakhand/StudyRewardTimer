@@ -1,7 +1,9 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:study_reward_timer/ui/study_timer_page.dart';
 import 'package:study_reward_timer/ui/styles/app_colors.dart';
 import 'package:study_reward_timer/ui/styles/app_text_styles.dart';
 
@@ -31,11 +33,11 @@ class RootPage extends HookWidget {
                       fontFamily: AppFontFamily.notoSansCJKjp,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.appThemeColor()
+                      color: Colors.white
                   ),
                 ),
               decoration: BoxDecoration(
-                color: Colors.red
+                color: AppColors.appThemeColor()
               ),
             ),
             ListTile(
@@ -56,6 +58,12 @@ class RootPage extends HookWidget {
         child: Icon(Icons.add),
 
         onPressed: () {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              fullscreenDialog: true,
+              builder: (context) => StudyTimerPage(),
+            ),
+          );
 
         },
       ),
@@ -75,7 +83,7 @@ class RootPage extends HookWidget {
 
               CircularCountDownTimer(
                 duration: 10,
-                initialDuration: 0,
+                initialDuration: 5,
                 controller: CountDownController(),
                 width: MediaQuery.of(context).size.width / 2,
                 height: MediaQuery.of(context).size.height / 3,
@@ -122,7 +130,7 @@ class RootPage extends HookWidget {
                       Icons.tag_faces,
                       color: Colors.white,
                     ),
-                    label: const Text('ゲームおわり'),
+                    label: const Text('おわり'),
                     style: ElevatedButton.styleFrom(
                       primary: AppColors.appThemeColor(),
                       onPrimary: Colors.white,
