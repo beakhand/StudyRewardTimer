@@ -13,6 +13,14 @@ class RootPage extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
+        title: Text("おべんきょうげーむたいまー",
+          style: TextStyle(
+              fontFamily: AppFontFamily.notoSansCJKjp,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          ),
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -44,21 +52,19 @@ class RootPage extends HookWidget {
         ),
 
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+
+        onPressed: () {
+
+        },
+      ),
       body: Container(
           child: Center(child:
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("ゲームができるじかん",
-                style: TextStyle(
-                    fontFamily: AppFontFamily.notoSansCJKjp,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.appThemeColor()
-                ),
-              ),
-              Container(height: 20),
-              Text("01:20:16",
                 style: TextStyle(
                     fontFamily: AppFontFamily.notoSansCJKjp,
                     fontSize: 20,
@@ -75,15 +81,15 @@ class RootPage extends HookWidget {
                 height: MediaQuery.of(context).size.height / 3,
                 ringColor: Colors.grey[300],
                 ringGradient: null,
-                fillColor: Colors.purpleAccent[100],
+                fillColor: AppColors.appThemeColor(),
                 fillGradient: null,
-                backgroundColor: Colors.purple[500],
+                backgroundColor: AppColors.appThemeColor(),
                 backgroundGradient: null,
                 strokeWidth: 20.0,
                 strokeCap: StrokeCap.round,
                 textStyle: TextStyle(
-                    fontSize: 33.0, color: Colors.white, fontWeight: FontWeight.bold),
-                textFormat: CountdownTextFormat.S,
+                    fontSize: 30.0, color: Colors.white, fontWeight: FontWeight.bold),
+                textFormat: CountdownTextFormat.HH_MM_SS,
                 isReverse: false,
                 isReverseAnimation: false,
                 isTimerTextShown: true,
@@ -105,7 +111,7 @@ class RootPage extends HookWidget {
                     ),
                     label: const Text('ゲームかいし'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
+                      primary: AppColors.appThemeColor(),
                       onPrimary: Colors.white,
                     ),
                     onPressed: () {},
@@ -118,7 +124,7 @@ class RootPage extends HookWidget {
                     ),
                     label: const Text('ゲームおわり'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
+                      primary: AppColors.appThemeColor(),
                       onPrimary: Colors.white,
                     ),
                     onPressed: () {},
@@ -129,7 +135,7 @@ class RootPage extends HookWidget {
             ],
           )
             ),
-          color: Colors.red
+          color: Colors.white
       )
     );
   }

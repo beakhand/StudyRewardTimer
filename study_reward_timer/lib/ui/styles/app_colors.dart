@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color appThemeColor() {
-    return Color.fromRGBO(5, 211, 208, 1);
+    return Color.fromRGBO(51, 153, 255, 1);
   }
 
   //static const Color appThemeColorConst = Color(0xFFFFF0FF);
