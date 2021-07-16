@@ -18,6 +18,7 @@ dependencies:
   # For Architecture
   flutter_hooks: ^0.16.0
   hooks_riverpod: ^0.13.0
+  circular_countdown_timer: ^0.2.0
 
 dev_dependencies:
   flutter_test:
