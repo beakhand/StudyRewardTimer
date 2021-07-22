@@ -15,10 +15,8 @@ class StudyTimerPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final selectedTabIndex = useProvider(rootPageProvider.state.select((s) => s.selectedTabIndex));
-    //final controller = useProvider(rootPageProvider);
+    final controller = useProvider(_studyTimerPageProvider);
     final studySecText = useProvider(_studyTimerPageProvider.state.select((s) => s.studySecText));
-
 
     return Scaffold(
         appBar: AppBar(
@@ -69,7 +67,9 @@ class StudyTimerPage extends HookWidget {
                         primary: AppColors.appThemeColor(),
                         onPrimary: Colors.white,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.start();
+                      },
                     ),
                     Container(width: 20),
                     ElevatedButton.icon(
@@ -82,7 +82,9 @@ class StudyTimerPage extends HookWidget {
                         primary: AppColors.appThemeColor(),
                         onPrimary: Colors.white,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.stop();
+                      },
                     ),
 
                   ],
