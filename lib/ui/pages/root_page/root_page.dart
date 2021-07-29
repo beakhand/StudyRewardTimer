@@ -139,7 +139,9 @@ class RootPage extends HookWidget {
                         primary: AppColors.appThemeColor(),
                         onPrimary: Colors.white,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.pause();
+                      },
                     ),
 
                   ],
