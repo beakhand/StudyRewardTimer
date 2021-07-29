@@ -8,6 +8,8 @@ import 'package:study_reward_timer/ui/styles/app_colors.dart';
 import 'package:study_reward_timer/ui/styles/app_text_styles.dart';
 
 class RootPage extends HookWidget {
+  CountDownController _controller = CountDownController();
+
   @override
   Widget build(BuildContext context) {
     //final selectedTabIndex = useProvider(rootPageProvider.state.select((s) => s.selectedTabIndex));
@@ -82,9 +84,9 @@ class RootPage extends HookWidget {
                 ),
 
                 CircularCountDownTimer(
-                  duration: 10,
-                  initialDuration: 5,
-                  controller: CountDownController(),
+                  duration: 100,
+                  initialDuration: 20,
+                  controller: _controller,
                   width: MediaQuery.of(context).size.width / 2,
                   height: MediaQuery.of(context).size.height / 3,
                   ringColor: Colors.grey,
@@ -122,7 +124,9 @@ class RootPage extends HookWidget {
                         primary: AppColors.appThemeColor(),
                         onPrimary: Colors.white,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.start();
+                      },
                     ),
                     Container(width: 20),
                     ElevatedButton.icon(
